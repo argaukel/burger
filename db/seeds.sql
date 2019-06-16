@@ -1,2 +1,1 @@
-INSERT INTO ramen (ramen_type) VALUES ('miso');
-INSERT INTO ramen (ramen_type) VALUES ('vegetarian');
+INSERT INTO ramen_ingredients (ingredient_name) VALUES ('tonkatsu broth');

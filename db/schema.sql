@@ -3,10 +3,10 @@
 CREATE DATABASE ramen_db;
 USE ramen_db;
 
-CREATE TABLE ramen
+CREATE TABLE ramen_ingredients
 (
-	ramen_id int NOT NULL AUTO_INCREMENT,
-	ramen_type varchar(255) NOT NULL,
+	ingredient_id int NOT NULL AUTO_INCREMENT,
+	ingredient_name varchar(255) NOT NULL,
 	
-	PRIMARY KEY (ramen_id)
+	PRIMARY KEY (ingredient_id)
 );

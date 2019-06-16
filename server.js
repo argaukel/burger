@@ -1,4 +1,5 @@
 var express = require("express");
+var connection = require("./config/connection.js");
 
 var PORT = process.env.PORT || 8080;
 
@@ -20,7 +21,7 @@ app.set("view engine", "handlebars");
 // Import routes and give the server access to them.
 var routes = require("./controllers/ramenController.js");
 
-app.use(routes);
+// app.use(routes);
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
