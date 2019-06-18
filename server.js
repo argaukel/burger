@@ -22,7 +22,7 @@ app.set("view engine", "handlebars");
 var routes = require("./controllers/ramenController.js");
 
 // app.use(routes);
-
+//consloe log table data
 app.get("/", function(req, res) {
   connection.query("SELECT * FROM ramen_ingredients;", function(err, data) {
     console.log(data)
@@ -31,6 +31,22 @@ app.get("/", function(req, res) {
     }
 
     res.render("index", { ramen_ingredients: data });
+  });
+});
+
+app.post("/api/ramen_ingredients", function(req, res) {
+  connection.query("INSERT INTO ramen_ingredients (ingredient_name) VALUES (?)", [req.body.newIngredient], function(
+    err,
+    result
+  ) {
+    if (err) {
+      // If an error occurred, send a generic server failure
+      return res.status(500).end();
+      console.log(err);
+    }
+
+    // Send back the ID of the new quote
+    res.json({ id: result.insertId });
   });
 });
 
