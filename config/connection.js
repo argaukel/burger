@@ -18,5 +18,16 @@ connection.connect(function(err) {
   console.log("connected as id " + connection.threadId);
 });
 
+// app.get("/", function(req, res) {
+//   connection.query("SELECT * FROM ramen_ingredients;", function(err, data) {
+//     if (err) {
+//       return res.status(500).end();
+//     }
+
+//     res.render("index", { ramen_ingredients: data });
+//   });
+// });
+
+
 // Export connection for our ORM to use.
 module.exports = connection;
