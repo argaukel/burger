@@ -23,8 +23,8 @@ var routes = require("./controllers/ramenController.js");
 
 // app.use(routes);
 //consloe log table data
-app.get("/", function(req, res) {
-  connection.query("SELECT * FROM ramen_ingredients;", function(err, data) {
+app.get("/", function (req, res) {
+  connection.query("SELECT * FROM ramen_ingredients;", function (err, data) {
     console.log(data)
     if (err) {
       return res.status(500).end();
@@ -34,25 +34,26 @@ app.get("/", function(req, res) {
   });
 });
 
-app.post("/api/ramen_ingredients", function(req, res) {
-  connection.query("INSERT INTO ramen_ingredients (ingredient_name) VALUES (?)", [req.body.newIngredient], function(
-    err,
-    result
-  ) {
-    if (err) {
-      // If an error occurred, send a generic server failure
-      return res.status(500).end();
-      console.log(err);
-    }
+app.post("/api/ramen_ingredients", function (req, res) {
+  var query = connection.query("INSERT INTO ramen_ingredients (ingredient_name) VALUES (?)", [req.body.ingredient_name],
+    function (err, result) {
+      console.log("eek")
+      console.log(query.sql)
+      console.log(req.body);
+      if (err) {
+        // If an error occurred, send a generic server failure
+        return res.status(500).end();
 
-    // Send back the ID of the new quote
-    res.json({ id: result.insertId });
-  });
+      }
+
+      // Send back the ID of the new quote
+      res.json({ id: result.insertId });
+    });
 });
 
 
 // Start our server so that it can begin listening to client requests.
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   // Log (server-side) when our server has started
   console.log("Server listening on: http://localhost:" + PORT);
 });

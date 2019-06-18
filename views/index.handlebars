@@ -3,10 +3,17 @@
 <h2>What do you want in it?</h2>
 
 <ul>
-  {{#each ingredient}}
-    {{!-- {{#unless sleepy}}
-      {{> ingredient/cat-block sleep=true}}
-    {{/unless}} --}}
+  {{!-- where is ingredients defined --}}
+  {{#each ramen_ingredients}}
+  <li>
+    <p><span class="label">ID:</span> {{this.ingredient_id}}</p>
+    <p><span class="label">Ingredient:</span> {{this.ingredient_name}}</p>
+    {{!-- <p><span class="label">Author:</span> {{this.author}}</p> --}}
+
+    {{!-- <button data-id="{{this.id}}" class="delquote">Delete</button> --}}
+
+    <a href="/{{this.id}}">use this ingredient</a>
+  </li>
   {{/each}}
 </ul>
 

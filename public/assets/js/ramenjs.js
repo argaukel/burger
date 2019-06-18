@@ -24,16 +24,16 @@ $(function() {
         console.log(newIngredient);
       
       // Send the POST request.
-    //   $.ajax("/api/ramen_ingredients", {
-    //     type: "POST",
-    //     data: newIngredient
-    //   }).then(
-    //     function() {
-    //       console.log("created new quote");
-    //       // Reload the page to get the updated list
-    //       location.reload();
-    //     }
-    //   );
+      $.ajax("/api/ramen_ingredients", {
+        type: "POST",
+        data: newIngredient
+      }).then(
+        function() {
+          console.log("created new quote");
+          // Reload the page to get the updated list
+          location.reload();
+        }
+      );
     });
   
     // $(".update-form").on("submit", function(event) {
